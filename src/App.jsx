@@ -11,10 +11,6 @@ import Perfil from './pages/Perfil.jsx';
 import Faq from './pages/Faq.jsx';
 import NotFound from './pages/NotFound.jsx';
 
-/**
- * Componente principal: orquestra os provedores de estado global
- * (Context API), o layout e as rotas (React Router).
- */
 function App() {
   return (
     <ToastProvider>

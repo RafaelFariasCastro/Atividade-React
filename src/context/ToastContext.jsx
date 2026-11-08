@@ -1,10 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 
-/**
- * Contexto global de notificações.
- * Qualquer componente pode disparar um toast com showToast(), sem precisar
- * receber callbacks por props.
- */
 const ToastContext = createContext(null);
 
 let nextId = 1;

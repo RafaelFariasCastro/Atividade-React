@@ -1,16 +1,7 @@
 import { useId, useState } from 'react';
 import './Accordion.css';
 
-/**
- * Acordeão: seções expansíveis/colapsáveis.
- *
- * Props:
- *  - items: [{ id, title, content }]  títulos e conteúdos dos itens
- *  - allowMultiple: se true, permite vários itens abertos ao mesmo tempo
- *  - defaultOpenId: id do item aberto inicialmente (opcional)
- */
 function Accordion({ items, allowMultiple = false, defaultOpenId = null }) {
-  // Estado: lista com os ids dos itens abertos
   const [openIds, setOpenIds] = useState(defaultOpenId ? [defaultOpenId] : []);
   const baseId = useId();
 
@@ -18,7 +9,6 @@ function Accordion({ items, allowMultiple = false, defaultOpenId = null }) {
     setOpenIds((current) => {
       const isOpen = current.includes(id);
       if (isOpen) return current.filter((openId) => openId !== id);
-      // Modo padrão: apenas um item aberto por vez
       return allowMultiple ? [...current, id] : [id];
     });
   };
@@ -45,7 +35,6 @@ function Accordion({ items, allowMultiple = false, defaultOpenId = null }) {
                 <span className="accordion__icon" aria-hidden="true" />
               </button>
             </h3>
-            {/* O painel usa grid-template-rows para animar a altura suavemente */}
             <div
               id={panelId}
               role="region"

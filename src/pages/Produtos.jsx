@@ -15,7 +15,6 @@ function Produtos() {
   const { addItem } = useCart();
   const { showToast } = useToast();
 
-  // Filtra e ordena os produtos sempre que os filtros mudarem
   const listaFiltrada = useMemo(() => {
     const filtrados =
       categoria === 'todas' ? produtos : produtos.filter((p) => p.categoria === categoria);
@@ -32,7 +31,7 @@ function Produtos() {
 
   const handleCategoria = (opcao) => {
     setCategoria(opcao.value);
-    setPaginaAtual(1); // volta para a primeira página ao trocar o filtro
+    setPaginaAtual(1);
   };
 
   const handleOrdem = (opcao) => {

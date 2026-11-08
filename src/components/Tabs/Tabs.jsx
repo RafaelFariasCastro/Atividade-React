@@ -1,14 +1,6 @@
 import { useId, useRef, useState } from 'react';
 import './Tabs.css';
 
-/**
- * Abas: organiza conteúdo em painéis.
- *
- * Props:
- *  - tabs: [{ id, label, content }]  títulos e conteúdos das abas
- *  - defaultTabId: aba ativa inicialmente (padrão: a primeira)
- *  - onChange: callback opcional chamado com o id da aba selecionada
- */
 function Tabs({ tabs, defaultTabId, onChange }) {
   const [activeId, setActiveId] = useState(defaultTabId ?? tabs[0]?.id);
   const tabRefs = useRef([]);
@@ -19,7 +11,6 @@ function Tabs({ tabs, defaultTabId, onChange }) {
     onChange?.(id);
   };
 
-  // Navegação por teclado (setas, Home, End), conforme o padrão WAI-ARIA
   const handleKeyDown = (event, index) => {
     let nextIndex = null;
     if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;

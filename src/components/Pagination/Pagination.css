@@ -53,7 +53,6 @@
   color: var(--text-muted);
 }
 
-/* Em telas pequenas mostra apenas as setas */
 @media (max-width: 480px) {
   .pagination__text {
     display: none;

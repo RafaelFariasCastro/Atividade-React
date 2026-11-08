@@ -1,4 +1,3 @@
-// Dados fictícios da listagem de produtos
 const nomes = {
   notebooks: ['Notebook Ultra 14', 'Notebook Pro 16', 'Notebook Gamer X', 'Notebook Slim 13', 'Chromebook Edu'],
   celulares: ['Smartphone Nova', 'Smartphone Lite', 'Smartphone Max', 'Smartphone Fold', 'Smartphone Mini'],

@@ -11,16 +11,11 @@ const links = [
   { to: '/faq', label: 'FAQ' },
 ];
 
-/**
- * Cabeçalho com navegação (React Router) e menu "hambúrguer" no celular.
- * Lê a quantidade de itens do carrinho direto do contexto global.
- */
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { totalItems } = useCart();
   const location = useLocation();
 
-  // Fecha o menu mobile sempre que a rota mudar
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);

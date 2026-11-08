@@ -106,7 +106,6 @@
   to   { transform: scaleX(0); }
 }
 
-/* No celular os toasts aparecem embaixo, ocupando a largura da tela */
 @media (max-width: 600px) {
   .toast-container {
     top: auto;

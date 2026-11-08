@@ -1,16 +1,6 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import './Dropdown.css';
 
-/**
- * Menu Suspenso: seleção de uma opção a partir de uma lista.
- *
- * Props:
- *  - label: rótulo do menu (ex.: "Categoria")
- *  - options: [{ value, label, onSelect? }]  cada opção pode ter um callback próprio
- *  - value: valor atualmente selecionado
- *  - onChange: callback geral chamado com a opção escolhida
- *  - placeholder: texto exibido quando nada foi selecionado
- */
 function Dropdown({ label, options, value, onChange, placeholder = 'Selecione...' }) {
   const [isOpen, setIsOpen] = useState(false);
   const [highlighted, setHighlighted] = useState(0);
@@ -21,7 +11,6 @@ function Dropdown({ label, options, value, onChange, placeholder = 'Selecione...
 
   const selected = options.find((option) => option.value === value);
 
-  // Fecha o menu ao clicar fora dele
   useEffect(() => {
     if (!isOpen) return undefined;
     const handleClickOutside = (event) => {
@@ -37,14 +26,13 @@ function Dropdown({ label, options, value, onChange, placeholder = 'Selecione...
     };
   }, [isOpen]);
 
-  // Ao abrir, destaca a opção selecionada e move o foco para a lista
   useEffect(() => {
     if (isOpen) {
       const index = options.findIndex((option) => option.value === value);
       setHighlighted(index >= 0 ? index : 0);
       listRef.current?.focus();
     }
-  }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   const close = () => {
     setIsOpen(false);

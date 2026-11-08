@@ -1,9 +1,5 @@
 import './Pagination.css';
 
-/**
- * Monta a lista de páginas visíveis, usando reticências quando há muitas.
- * Ex.: [1, '...', 4, 5, 6, '...', 10]
- */
 function getPageItems(currentPage, totalPages) {
   if (totalPages <= 7) {
     return Array.from({ length: totalPages }, (_, i) => i + 1);
@@ -18,14 +14,6 @@ function getPageItems(currentPage, totalPages) {
   return pages;
 }
 
-/**
- * Paginação: navegação entre páginas de conteúdo.
- *
- * Props:
- *  - totalPages: número total de páginas
- *  - currentPage: página atual (começa em 1)
- *  - onPageChange: callback chamado com o número da nova página
- */
 function Pagination({ totalPages, currentPage, onPageChange }) {
   if (totalPages <= 1) return null;
 

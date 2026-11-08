@@ -20,7 +20,6 @@ const frequencias = [
   { value: 'nunca', label: 'Não receber' },
 ];
 
-/* Conteúdo da aba "Visão geral" */
 function VisaoGeral() {
   return (
     <div className="profile-overview">
@@ -39,7 +38,6 @@ function VisaoGeral() {
   );
 }
 
-/* Conteúdo da aba "Carrinho": lê os dados do contexto global */
 function Carrinho() {
   const { items, totalPrice, clearCart } = useCart();
   const { showToast } = useToast();
@@ -101,13 +99,11 @@ function Carrinho() {
   );
 }
 
-/* Conteúdo da aba "Configurações" */
 function Configuracoes() {
   const [idioma, setIdioma] = useState('pt-BR');
   const [frequencia, setFrequencia] = useState('semanal');
   const { showToast } = useToast();
 
-  // Cada opção do menu de idioma tem seu próprio callback (onSelect)
   const opcoesIdioma = idiomas.map((opcao) => ({
     ...opcao,
     onSelect: () => showToast(`Idioma alterado para ${opcao.label}.`, 'info'),

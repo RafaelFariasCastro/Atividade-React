@@ -1,10 +1,5 @@
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 
-/**
- * Contexto global do carrinho.
- * A página de Produtos adiciona itens e o Header (componente não relacionado)
- * exibe a quantidade: exemplo de estado compartilhado.
- */
 const CartContext = createContext(null);
 
 export function CartProvider({ children }) {

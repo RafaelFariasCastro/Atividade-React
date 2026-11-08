@@ -3,8 +3,8 @@ import ProgressBar from '../components/ProgressBar/ProgressBar.jsx';
 import { useToast } from '../context/ToastContext.jsx';
 import './Pages.css';
 
-const TAMANHO_MAXIMO = 20 * 1024 * 1024; // 20 MB
-const ESPACO_TOTAL = 100 * 1024 * 1024; // 100 MB de armazenamento fictício
+const TAMANHO_MAXIMO = 20 * 1024 * 1024;
+const ESPACO_TOTAL = 100 * 1024 * 1024;
 
 const formatarTamanho = (bytes) => {
   if (bytes < 1024) return `${bytes} B`;
@@ -21,7 +21,6 @@ function Upload() {
 
   const emAndamento = uploads.some((u) => u.status === 'enviando');
 
-  // Simula o envio: a cada 300 ms aumenta o progresso dos arquivos em andamento
   useEffect(() => {
     if (!emAndamento) return undefined;
     const intervalo = setInterval(() => {
@@ -36,7 +35,6 @@ function Upload() {
     return () => clearInterval(intervalo);
   }, [emAndamento]);
 
-  // Quando um arquivo chega a 100%, marca como concluído e avisa o usuário
   useEffect(() => {
     const finalizados = uploads.filter((u) => u.status === 'enviando' && u.progress >= 100);
     if (finalizados.length === 0) return;
@@ -69,7 +67,7 @@ function Upload() {
 
   const handleFileChange = (event) => {
     adicionarArquivos(Array.from(event.target.files));
-    event.target.value = ''; // permite escolher o mesmo arquivo novamente
+    event.target.value = '';
   };
 
   const enviarExemplo = () => {

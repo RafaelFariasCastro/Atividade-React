@@ -1,9 +1,6 @@
 import { useToast } from '../../context/ToastContext.jsx';
 import Toast from './Toast.jsx';
 
-/**
- * Área fixa na tela onde os toasts do contexto global são empilhados.
- */
 function ToastContainer() {
   const { toasts, removeToast } = useToast();
 

@@ -1,4 +1,3 @@
-// Perguntas frequentes (conteúdo fictício)
 export const perguntasFrequentes = [
   {
     id: 'prazo',
